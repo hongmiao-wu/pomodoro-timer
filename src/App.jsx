@@ -2,6 +2,8 @@ import { useState } from 'react'
 import Timer from './Timer'
 import Controls from './Controls'
 import Settings from './Settings'
+import Modal from './Modal'
+import Banner from './Banner'
 import './App.css'
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
   const [isRunning, setIsRunning] = useState(false)
   const [settings, setSettings] = useState({ pomodoro: 25, break: 5 })
   const [phase, setPhase] = useState('pomodoro') // 'pomodoro' or 'break'
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
   const switchPhase = () => {
     if (phase === 'pomodoro') {
@@ -27,11 +30,13 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Pomodoro Timer</h1>
+      <Banner onSettingsClick={() => setIsSettingsOpen(true)} />
       <h2>{phase === 'pomodoro' ? 'Pomodoro' : 'Break'}</h2>
       <Timer time={time} isRunning={isRunning} setTime={setTime} onTimerEnd={handleTimerEnd} />
       <Controls isRunning={isRunning} setIsRunning={setIsRunning} setTime={setTime} settings={settings} switchPhase={switchPhase} />
-      <Settings settings={settings} setSettings={setSettings} />
+      <Modal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)}>
+        <Settings settings={settings} setSettings={setSettings} />
+      </Modal>
     </div>
   )
 }

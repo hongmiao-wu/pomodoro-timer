@@ -7,12 +7,13 @@ function Controls({ isRunning, setIsRunning, setTime, settings, switchPhase }) {
       setIsRunning(false)
       setTime(settings.pomodoro * 60)
     }
-  
+    
+    // hide Reset and Switch Phase buttons
     return (
       <div className="controls">
         <button onClick={handleStartPause}>{isRunning ? 'Pause' : 'Start'}</button>
-        <button onClick={handleReset}>Reset</button>
-        <button onClick={switchPhase}>Switch Phase</button>
+        {/* <button onClick={handleReset}>Reset</button> */}
+        {/* <button onClick={switchPhase}>Switch Phase</button> */}
       </div>
     )
   }
