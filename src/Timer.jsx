@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
+import './Timer.css'
+import nextIcon from './assets/next.png'
 
-function Timer({ time, isRunning, setTime, onTimerEnd }) {
+function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, phase, setPhase }) {
   useEffect(() => {
     if (!isRunning) return
 
@@ -25,7 +27,33 @@ function Timer({ time, isRunning, setTime, onTimerEnd }) {
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
   }
 
-  return <div className="timer">{formatTime(time)}</div>
+  const handleStartPause = () => {
+    setIsRunning(!isRunning)
+  }
+
+  const handleSwitchPhase = () => {
+    if (phase === 'pomodoro') {
+      setPhase('break')
+      setTime(settings.break * 60)
+    } else {
+      setPhase('pomodoro')
+      setTime(settings.pomodoro * 60)
+    }
+  }
+
+  return (
+    <div className="timer">
+      <div>{formatTime(time)}</div>
+      <div className="button-container">
+        <button className="start-pause-button" onClick={handleStartPause}>
+          {isRunning ? 'PAUSE' : 'START'}
+        </button>
+        {isRunning && (<button className="next-button" onClick={handleSwitchPhase}>
+          <img src={nextIcon} alt="Next Phase" className="next-icon" />
+        </button>)}
+      </div>
+    </div>
+  )
 }
 
 export default Timer

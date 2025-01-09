@@ -16,46 +16,6 @@
   color: white;
 }
 
-.timer {
-  background-color: rgb(181, 98, 95);
-  padding: 40px; /* Add padding */
-  border-radius: 10px;
-  font-size: 48px;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  width: 300px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.banner {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-.home-icon, .settings-icon {
-  color: white;
-  text-decoration: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.icon-image {
-  width: 24px;
-  height: 24px;
-}
-
 .controls {
   display: flex;
   justify-content: center;

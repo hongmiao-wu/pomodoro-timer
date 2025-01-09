@@ -1,0 +1,28 @@
+    .banner {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgb(173, 80, 77);
+  }
+  .home-icon, .settings-icon {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+    border-radius: 0; /* Override global button border-radius */
+  }
+  
+  .icon-image {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .icon-text {
+    font-size: 16px;
+    margin-left: 8px; /* Add some space between the icon and the text */
+  }
+  

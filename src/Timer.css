@@ -1,0 +1,57 @@
+.timer {
+    background-color: rgb(181, 98, 95);
+    padding: 40px;
+    border-radius: 10px;
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    width: 300px;
+    height: 200px; /* Adjust height to accommodate buttons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px; /* Add some space between the timer and the buttons */
+    width: 100%; /* Ensure the button container takes full width */
+    position: relative; /* Add relative positioning to the button container */
+  }
+  
+  .start-pause-button {
+    color: rgb(173, 80, 77);
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+    position: absolute; /* Position the start-pause button absolutely */
+    left: 50%; /* Center the start-pause button */
+    transform: translateX(-50%); /* Center the start-pause button */
+  }
+  
+  .next-button {
+    color: rgb(173, 80, 77);
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(181, 98, 95);
+    position: absolute; /* Position the next button absolutely */
+    right: 10px; /* Align the next button to the right */
+  }
+  
+  .next-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
+  }
