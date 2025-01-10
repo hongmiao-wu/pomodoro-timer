@@ -1,12 +1,12 @@
 :root {
-  --pomodoro-bg: rgb(173, 80, 77);
-  --pomodoro-container-bg: rgb(181, 98, 95);
-  --pomodoro-text: rgb(173, 80, 77);
-  --pomodoro-divider: rgb(152, 72, 69);
+  --pomodoro-bg: rgb(186, 73, 73);
+  --pomodoro-container-bg: rgb(194, 92, 92);
+  --pomodoro-text: rgb(186, 73, 73);
+  --pomodoro-divider: rgb(167, 66, 66);
 
-  --break-bg: rgb(77, 131, 137);
-  --break-container-bg: rgb(95, 144, 149);
-  --break-text: rgb(77, 131, 137);
+  --break-bg: rgb(56, 133, 138);
+  --break-container-bg: rgb(79, 146, 150);
+  --break-text: rgb(56, 133, 138);
   --break-divider: rgb(69, 118, 123);
 }
 
@@ -25,6 +25,7 @@
   height: 100vh;
   width: 100vw; /* Add this to ensure full width */
   color: white;
+  transition: background-color 0.4s ease;
 }
 
 .pomodoro {
