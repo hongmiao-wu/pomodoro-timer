@@ -1,5 +1,4 @@
 .timer {
-    background-color: rgb(181, 98, 95);
     padding: 40px;
     border-radius: 10px;
     font-size: 48px;
@@ -15,11 +14,11 @@
   }
 
   .pomodoro .timer {
-    background-color: rgb(181, 98, 95);
+    background-color: var(--pomodoro-container-bg);
   }
   
   .break .timer {
-    background-color: rgb(95, 144, 149);
+    background-color: var(--break-container-bg);
   }
   
   .button-container {
@@ -44,7 +43,6 @@
   }
   
   .next-button {
-    color: rgb(173, 80, 77);
     border: none;
     padding: 10px 20px;
     font-size: 18px;
@@ -58,21 +56,21 @@
 
   .pomodoro .start-pause-button {
     background-color: white;
-    color: rgb(173, 80, 77);
+    color: var(--pomodoro-text);
   }
 
   .break .start-pause-button {
     background-color: white;
-    color: rgb(77, 131, 137);
+    color: var(--break-text);
   }
 
   .pomodoro .next-button {
-        background-color: rgb(181, 98, 95);
+        background-color: var(--pomodoro-container-bg);
         color: white;
     }
 
     .break .next-button {
-        background-color: rgb(95, 144, 149);
+        background-color: var(--break-container-bg);
         color: white;
     }
   

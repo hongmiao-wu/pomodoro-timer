@@ -1,3 +1,15 @@
+:root {
+  --pomodoro-bg: rgb(173, 80, 77);
+  --pomodoro-container-bg: rgb(181, 98, 95);
+  --pomodoro-text: rgb(173, 80, 77);
+  --pomodoro-divider: rgb(152, 72, 69);
+
+  --break-bg: rgb(77, 131, 137);
+  --break-container-bg: rgb(95, 144, 149);
+  --break-text: rgb(77, 131, 137);
+  --break-divider: rgb(69, 118, 123);
+}
+
 #root {
   max-width: 100%;
   padding: 0;
@@ -16,11 +28,11 @@
 }
 
 .pomodoro {
-  background-color: rgb(173, 80, 77);
+  background-color: var(--pomodoro-bg);
 }
 
 .break {
-  background-color: rgb(77, 131, 137);
+  background-color: var(--break-bg); 
 }
 
 .controls {
@@ -31,7 +43,6 @@
 
 .control-button {
   background-color: white;
-  color: rgb(173, 80, 77);
   border: none;
   padding: 10px 20px;
   font-size: 18px;
