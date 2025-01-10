@@ -24,7 +24,7 @@ function App() {
     <div className={appClass}>
       <Banner onSettingsClick={() => setIsSettingsOpen(true)} />
       <Divider />
-      <h2>{phase === 'pomodoro' ? 'Pomodoro' : 'Break'}</h2>
+      {/* <h2>{phase === 'pomodoro' ? 'Pomodoro' : 'Break'}</h2> */}
       <Timer 
         time={time} 
         isRunning={isRunning} 

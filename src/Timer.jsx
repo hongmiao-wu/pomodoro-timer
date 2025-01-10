@@ -43,6 +43,20 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
 
   return (
     <div className="timer">
+      <div className="tabs">
+        <button 
+          className={`tab-button ${phase === 'pomodoro' ? 'active' : ''}`} 
+          onClick={() => handleSwitchPhase('pomodoro')}
+        >
+          Pomodoro
+        </button>
+        <button 
+          className={`tab-button ${phase === 'break' ? 'active' : ''}`} 
+          onClick={() => handleSwitchPhase('break')}
+        >
+          Break
+        </button>
+      </div>
       <div>{formatTime(time)}</div>
       <div className="button-container">
         <button className="start-pause-button" onClick={handleStartPause}>
