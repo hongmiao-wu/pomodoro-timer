@@ -1,5 +1,12 @@
 .divider {
     width: 400px;
     height: 1px;
+  }
+
+  .pomodoro .divider {
     background-color: rgb(152, 72, 69);
+  }
+  
+  .break .divider {
+    background-color: rgb(69, 118, 123);
   }

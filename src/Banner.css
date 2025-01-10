@@ -2,8 +2,16 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
+  }
+
+  .pomodoro.banner {
     background-color: rgb(173, 80, 77);
   }
+  
+  .break.banner {
+    background-color: rgb(77, 131, 137);
+  }
+
   .home-icon, .settings-icon {
     color: white;
     text-decoration: none;

@@ -13,6 +13,14 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  .pomodoro .timer {
+    background-color: rgb(181, 98, 95);
+  }
+  
+  .break .timer {
+    background-color: rgb(95, 144, 149);
+  }
   
   .button-container {
     display: flex;
@@ -24,14 +32,12 @@
   }
   
   .start-pause-button {
-    color: rgb(173, 80, 77);
     border: none;
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
-    background-color: white;
     position: absolute; /* Position the start-pause button absolutely */
     left: 50%; /* Center the start-pause button */
     transform: translateX(-50%); /* Center the start-pause button */
@@ -49,6 +55,26 @@
     position: absolute; /* Position the next button absolutely */
     right: 10px; /* Align the next button to the right */
   }
+
+  .pomodoro .start-pause-button {
+    background-color: white;
+    color: rgb(173, 80, 77);
+  }
+
+  .break .start-pause-button {
+    background-color: white;
+    color: rgb(77, 131, 137);
+  }
+
+  .pomodoro .next-button {
+        background-color: rgb(181, 98, 95);
+        color: white;
+    }
+
+    .break .next-button {
+        background-color: rgb(95, 144, 149);
+        color: white;
+    }
   
   .next-icon {
     width: 24px;
