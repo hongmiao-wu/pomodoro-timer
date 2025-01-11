@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import './Timer.css'
 import nextIcon from './assets/next.png'
+import Phase from './Phase'
 
 function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, phase, setPhase }) {
   useEffect(() => {
@@ -24,7 +25,6 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60).toString().padStart(2, '0')
     const secs = (seconds % 60).toString().padStart(2, '0')
-    // return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
     return `${minutes}:${secs}`
   }
 
@@ -32,40 +32,58 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
     setIsRunning(!isRunning)
   }
 
-  const handleSwitchPhase = () => {
-    if (phase === 'pomodoro') {
-      setPhase('break')
-      setTime(settings.break * 60)
-    } else {
-      setPhase('pomodoro')
+  const handleSwitchPhase = (newPhase) => {
+    setIsRunning(false)
+    setPhase(newPhase)
+    if (newPhase === 'pomodoro') {
       setTime(settings.pomodoro * 60)
+    } else if (newPhase === 'break') {
+      setTime(settings.break * 60)
+    } else if (newPhase === 'longBreak') {
+      setTime(settings.longBreak * 60)
     }
   }
+
+  const handleNextPhase = () => {
+    if (phase === 'pomodoro') {
+      handleSwitchPhase('break')
+    } else if (phase === 'break') {
+      handleSwitchPhase('longBreak')
+    } else {
+      handleSwitchPhase('pomodoro')
+    }
+  }
+
 
   return (
     <div className="timer">
       <div className="tabs">
-        <button 
-          className={`tab-button ${phase === 'pomodoro' ? 'active' : ''}`} 
-          onClick={() => handleSwitchPhase('pomodoro')}
-        >
-          Pomodoro
-        </button>
-        <button 
-          className={`tab-button ${phase === 'break' ? 'active' : ''}`} 
-          onClick={() => handleSwitchPhase('break')}
-        >
-          Break
-        </button>
+        <Phase 
+          label="Pomodoro" 
+          isActive={phase === 'pomodoro'} 
+          onClick={() => handleSwitchPhase('pomodoro')} 
+        />
+        <Phase 
+          label="Short Break" 
+          isActive={phase === 'break'} 
+          onClick={() => handleSwitchPhase('break')} 
+        />
+        <Phase 
+          label="Long Break" 
+          isActive={phase === 'longBreak'} 
+          onClick={() => handleSwitchPhase('longBreak')} 
+        />
       </div>
       <div>{formatTime(time)}</div>
       <div className="button-container">
-        <button className="start-pause-button" onClick={handleStartPause}>
+        <button className={`start-pause-button ${isRunning ? 'pause' : 'start'}`} onClick={handleStartPause}>
           {isRunning ? 'PAUSE' : 'START'}
         </button>
-        {isRunning && (<button className="next-button" onClick={handleSwitchPhase}>
-          <img src={nextIcon} alt="Next Phase" className="next-icon" />
-        </button>)}
+        {isRunning && (
+          <button className="next-button" onClick={handleNextPhase}>
+            <img src={nextIcon} alt="Next Phase" className="next-icon" />
+          </button>
+        )}
       </div>
     </div>
   )

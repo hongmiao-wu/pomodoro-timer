@@ -9,22 +9,34 @@ import './App.css'
 function App() {
   const [time, setTime] = useState(1500) // Default 25 minutes
   const [isRunning, setIsRunning] = useState(false)
-  const [settings, setSettings] = useState({ pomodoro: 25, break: 5 })
-  const [phase, setPhase] = useState('pomodoro') // 'pomodoro' or 'break'
+  const [settings, setSettings] = useState({ pomodoro: 25, break: 5, longBreak: 15 })
+  const [phase, setPhase] = useState('pomodoro') // 'pomodoro', 'break', or 'longBreak'
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+
+  const switchPhase = () => {
+    if (phase === 'pomodoro') {
+      setPhase('break')
+      setTime(settings.break * 60)
+    } else if (phase === 'break') {
+      setPhase('longBreak')
+      setTime(settings.longBreak * 60)
+    } else {
+      setPhase('pomodoro')
+      setTime(settings.pomodoro * 60)
+    }
+  }
 
   const handleTimerEnd = () => {
     setIsRunning(false)
     alert('Time is up! Please switch the phase.')
   }
 
-  const appClass = phase === 'pomodoro' ? 'app pomodoro' : 'app break'
+  const appClass = phase === 'pomodoro' ? 'app pomodoro' : phase === 'break' ? 'app break' : 'app longBreak'
 
   return (
     <div className={appClass}>
       <Banner onSettingsClick={() => setIsSettingsOpen(true)} />
       <Divider />
-      {/* <h2>{phase === 'pomodoro' ? 'Pomodoro' : 'Break'}</h2> */}
       <Timer 
         time={time} 
         isRunning={isRunning} 

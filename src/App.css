@@ -8,6 +8,11 @@
   --break-container-bg: rgb(79, 146, 150);
   --break-text: rgb(56, 133, 138);
   --break-divider: rgb(69, 118, 123);
+
+  --longBreak-bg: rgb(57, 112, 151);
+  --longBreak-container-bg: rgb(79, 127, 162);
+  --longBreak-text: rgb(57, 112, 151);
+  --longBreak-divider: rgb(52, 101, 136);
 }
 
 #root {
@@ -23,9 +28,9 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  width: 100vw; /* Add this to ensure full width */
+  width: 100vw; /* Ensure full width */
   color: white;
-  transition: background-color 0.4s ease;
+  transition: background-color 0.5s ease; /* Add transition for background color */
 }
 
 .pomodoro {
@@ -33,7 +38,16 @@
 }
 
 .break {
-  background-color: var(--break-bg); 
+  background-color: var(--break-bg);
+}
+
+.longBreak {
+  background-color: var(--longBreak-bg);
+}
+
+button:focus,
+button:active {
+  outline: none; /* Ensure outline is removed when button is focused or active */
 }
 
 .controls {
@@ -44,10 +58,9 @@
 
 .control-button {
   background-color: white;
+  color: var(--pomodoro-text);
   border: none;
   padding: 10px 20px;
   font-size: 18px;
   font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
 }
