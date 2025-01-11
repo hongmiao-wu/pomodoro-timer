@@ -1,6 +1,6 @@
 # Pomodoro Timer
 
-This is a simple Pomodoro Timer application built with React and Vite. The application allows users to switch between Pomodoro, Short Break, and Long Break phases. The code was built with the help of GitHub Copilot.
+This is a simple Pomodoro Timer web app built with React and Vite. The application allows users to switch between the Pomodoro, Short Break, and Long Break phases. The code was built with the help of GitHub Copilot. As a learning exercise, the UI/UX is implemented as closely as possible to [Pomofocus](https://pomofocus.io/).
 
 ![Pomodoro Timer Screenshot](./screenshot.png)
 
@@ -44,7 +44,3 @@ npm run dev
 yarn dev
 ```
 2. Open your browser and navigate to http://localhost:PORT to see the application in action.
-
-## Acknowledgements
-This template was created using Vite and the code was built with the help of GitHub Copilot.
-
