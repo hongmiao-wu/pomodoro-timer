@@ -22,9 +22,10 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
   }, [isRunning, setTime, onTimerEnd])
 
   const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60)
-    const secs = seconds % 60
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
+    const minutes = Math.floor(seconds / 60).toString().padStart(2, '0')
+    const secs = (seconds % 60).toString().padStart(2, '0')
+    // return `${minutes}:${secs < 10 ? '0' : ''}${secs}`
+    return `${minutes}:${secs}`
   }
 
   const handleStartPause = () => {
