@@ -2,6 +2,7 @@
     width: 400px;
     height: 1px;
     transition: background-color 0.4s ease;
+    margin-bottom: 20px; 
   }
 
   .pomodoro .divider {
@@ -10,4 +11,8 @@
   
   .break .divider {
     background-color: var(--break-divider);
+  }
+
+  .longBreak .divider {
+    background-color: var(--longBreak-divider);
   }

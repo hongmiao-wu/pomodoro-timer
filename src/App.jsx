@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Timer from './Timer'
 import Settings from './Settings'
 import Modal from './Modal'
@@ -13,18 +13,13 @@ function App() {
   const [phase, setPhase] = useState('pomodoro') // 'pomodoro', 'break', or 'longBreak'
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
 
-  const switchPhase = () => {
-    if (phase === 'pomodoro') {
-      setPhase('break')
-      setTime(settings.break * 60)
-    } else if (phase === 'break') {
-      setPhase('longBreak')
-      setTime(settings.longBreak * 60)
-    } else {
-      setPhase('pomodoro')
-      setTime(settings.pomodoro * 60)
-    }
-  }
+  useEffect(() => {
+    const phaseText = phase === 'pomodoro' ? 'Pomodoro' : 
+                      phase === 'break' ? 'Short Break' : 'Long Break'
+    const minutes = Math.floor(time / 60).toString().padStart(2, '0')
+    const seconds = (time % 60).toString().padStart(2, '0')
+    document.title = `${minutes}:${seconds} - ${phaseText}`
+  }, [time, phase])
 
   const handleTimerEnd = () => {
     setIsRunning(false)

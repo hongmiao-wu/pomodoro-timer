@@ -1,9 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import './Timer.css'
 import nextIcon from './assets/next.png'
 import Phase from './Phase'
 
 function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, phase, setPhase }) {
+  const startSoundRef = useRef(null)
+
+  const playStartSound = () => {
+    try {
+      if (startSoundRef.current) {
+        startSoundRef.current.volume = 0.3
+        startSoundRef.current.currentTime = 0 // Reset audio to start
+        startSoundRef.current.play()
+          .catch(error => console.log('Error playing sound:', error))
+      }
+    } catch (error) {
+      console.log('Error with audio:', error)
+    }
+  }
+
   useEffect(() => {
     if (!isRunning) return
 
@@ -29,6 +44,7 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
   }
 
   const handleStartPause = () => {
+    playStartSound()
     setIsRunning(!isRunning)
   }
 
@@ -57,6 +73,11 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
 
   return (
     <div className="timer">
+      <audio 
+        ref={startSoundRef} 
+        src="./public/start-sound.wav" 
+        preload="auto"
+      />
       <div className="tabs">
         <Phase 
           label="Pomodoro" 
