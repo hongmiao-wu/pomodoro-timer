@@ -75,7 +75,7 @@ function Timer({ time, isRunning, setTime, onTimerEnd, setIsRunning, settings, p
     <div className="timer">
       <audio 
         ref={startSoundRef} 
-        src="./public/start-sound.wav" 
+        src="/start-sound.wav" 
         preload="auto"
       />
       <div className="tabs">
