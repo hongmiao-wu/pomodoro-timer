@@ -1,15 +1,15 @@
 import tomatoIcon from './assets/tomato.png'
 import './Banner.css'
 
-function Banner({ onHomeClick, onSettingsClick }) {
+function Banner({ onSettingsClick }) {
   return (
     <div className="banner">
-      <button className="home-icon" onClick={onHomeClick}>
-        <img src={tomatoIcon} alt="Home" className="icon-image" />
+      <div className="logo">
+        <img src={tomatoIcon} alt="Logo" className="icon-image" />
         <span className="icon-text">Pomodoro</span>
-      </button>
+      </div>
       <button className="settings-icon" onClick={onSettingsClick}>⚙️
-      <span className="icon-text">Settings</span>
+        <span className="icon-text">Settings</span>
       </button>
     </div>
   )
