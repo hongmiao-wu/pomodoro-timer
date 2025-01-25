@@ -1,0 +1,40 @@
+.settings {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Adjusted width to accommodate horizontal layout */
+    margin: 0 auto;
+  }
+  
+  .settings h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .settings-row {
+    display: flex;
+    justify-content: center; /* Center the row */
+    gap: 50px; /* Add space between the groups */
+  }
+  
+  .settings-group {
+    flex: 1;
+    max-width: 100px; /* Ensure groups don't stretch too wide */
+  }
+  
+  .settings label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .settings input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
